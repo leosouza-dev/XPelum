@@ -13,6 +13,9 @@ using Microsoft.EntityFrameworkCore;
 using XPelum.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using XPelum.Repository;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace XPelum
 {
@@ -42,7 +45,16 @@ namespace XPelum
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            //meu dbcontext
+            services.AddDbContext<MeuDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<AcessoriaRepository, AcessoriaRepository>();
+
+            //services.AddSingleton<IFileProvider>(
+            //    new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +73,9 @@ namespace XPelum
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
+
             app.UseCookiePolicy();
 
             app.UseAuthentication();

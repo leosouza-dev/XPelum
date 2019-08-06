@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<XPelum.Models.Acessoria>
-
-@*@{
+@{
     ViewData["Title"] = "Home Page";
-}*@
+}
 <div class="text-light bg-dark luciano-hulk row carousel">
     <div class="container">
         <div class="row mt-banner-2">
@@ -76,30 +75,86 @@
     </div>
 </div>
 
-
-
 <div class="bg-white">
     <div class="container">
         <div class="row mt-3">
+            <div class="col-12">
+                <p class="text-center mt-5">RELACIONAMENTO XP</p>
+                <h4 class="text-center">Atendimento transparente, próximo e do seu jeito: <br />aqui chamamos isso de assessoria de investimentos.</h4>
+            </div>
 
-            @foreach (var item in Model)
-            {
-                <div class="col-md-3 mt-4 card meu-card">
-                    <img class="card-img-top" src="~/img/@Html.DisplayFor(modelItem => item.Imagem)" alt="Acessoria Private" />
-                    <h3 class="display-3">Assessoria <br /> @Html.DisplayFor(modelItem => item.Nome)</h3>
-                    <div>
-                        <p class="mt-5 font-weight-bold">
-                            @Html.DisplayFor(modelItem => item.Investimento)
-                        </p>
-                    </div>
-                    <div class="mt-2 mb-5">
-                        <p>@Html.DisplayFor(modelItem => item.Descricao)</p>
-                    </div>
-                    <div class="btn-investimento mt-5">
-                        <button class="btn btn-outline-warning text-dark mb-3 ">Saiba mais</button>
-                    </div>
+            @*private*@
+            <div class="col-md-3 mt-4 card meu-card">
+                <img class="card-img-top" src="~/img/private.jpg" alt="Acessoria Private" />
+                <h3 class="display-3">Assessoria <br /> Private</h3>
+                <div>
+                    <p class="mt-5">
+                        A partir de R$<span class="valor-investimento">10 milhões</span> <br />
+                        em investimentos
+                    </p>
                 </div>
-            }
+                <div class="mt-2">
+                    <p>Equipe altamente especializada e soluções sob medida.</p>
+                </div>
+                <div class="btn-investimento">
+                    <button class="btn btn-outline-warning text-dark mb-3 ">Saiba mais</button>
+                </div>
+            </div>
+
+            @*exclusiva*@
+            <div class="col-md-3 mt-4 card meu-card">
+                <img class="card-img-top" src="~/img/exclusiva.jpg" alt="Acessoria Exclusiva" />
+                <h3 class="display-3">Assessoria <br /> Exclusiva</h3>
+                <div>
+                    <p class="mt-5">
+                        A partir de R$<span class="valor-investimento">300 mil</span> <br />
+                        em investimentos
+                    </p>
+                </div>
+                <div class="mt-2 mb-5">
+                    <p>Relacionamento próximo, acompanhamento individual e carteira de investimentos personalizada.</p>
+                </div>
+                <div class="btn-investimento">
+                    <button class="btn btn-outline-warning text-dark mb-3">Saiba mais</button>
+                </div>
+            </div>
+
+            @*OnDemand*@
+            <div class="col-md-3 mt-4 card meu-card">
+                <img class="card-img-top" src="~/img/demand.jpg" alt="Acessoria On Demand" />
+                <h3 class="display-3">Assessoria <br /> On Demand</h3>
+                <div>
+                    <p class="mt-5">
+                        Entre R$<span class="valor-investimento">50 - 300 mil</span> <br />
+                        em investimentos
+                    </p>
+                </div>
+                <div class="mt-2">
+                    <p>O melhor da experiência XP em um formato ágil e dinâmico.</p>
+                </div>
+                <div class="btn-investimento">
+                    <button class="btn btn-outline-warning text-dark mb-3">Saiba mais</button>
+                </div>
+            </div>
+
+            @*acessoria digital*@
+            <div class="col-md-3 mt-4 card meu-card">
+                <img class="card-img-top" src="~/img/digital.jpg" alt="Acessoria Digital" />
+                <h3 class="display-3">Assessoria <br /> Digital</h3>
+
+                <div>
+                    <p class="mt-5">
+                        Até R$<span class="valor-investimento">50 mil</span> <br />
+                        em investimentos
+                    </p>
+                </div>
+                <div class="mt-2">
+                    <p>A porta de entrada para uma nova relação com os seus investimentos.</p>
+                </div>
+                <div class="btn-investimento">
+                    <button class="btn btn-outline-warning text-dark mb-3">Saiba mais</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

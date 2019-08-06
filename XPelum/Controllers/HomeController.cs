@@ -5,14 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using XPelum.Models;
+using XPelum.Repository;
 
 namespace XPelum.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AcessoriaRepository _repository;
+
+        public HomeController(AcessoriaRepository repository)
+        {
+            _repository = repository;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            
+            return View(_repository.ListarTodas());
         }
 
         public IActionResult Privacy()
