@@ -51,7 +51,7 @@ namespace XPelum
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddScoped<AcessoriaRepository, AcessoriaRepository>();
+            services.AddScoped<AssessoriaRepository, AssessoriaRepository>();
 
             //services.AddSingleton<IFileProvider>(
             //    new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img")));

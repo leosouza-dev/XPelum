@@ -8,9 +8,9 @@ using XPelum.Models;
 
 namespace XPelum.Data.Map
 {
-    public class AcessoriaMapping : IEntityTypeConfiguration<Acessoria>
+    public class AcessoriaMapping : IEntityTypeConfiguration<Assessoria>
     {
-        public void Configure(EntityTypeBuilder<Acessoria> builder)
+        public void Configure(EntityTypeBuilder<Assessoria> builder)
         {
             //builder.HasKey(p => p.Id);
 

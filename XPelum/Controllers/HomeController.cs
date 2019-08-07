@@ -11,9 +11,9 @@ namespace XPelum.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly AcessoriaRepository _repository;
+        private readonly AssessoriaRepository _repository;
 
-        public HomeController(AcessoriaRepository repository)
+        public HomeController(AssessoriaRepository repository)
         {
             _repository = repository;
         }

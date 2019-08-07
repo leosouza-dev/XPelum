@@ -6,19 +6,19 @@ using XPelum.ViewModel;
 
 namespace XPelum.Models
 {
-    public class Acessoria
+    public class Assessoria
     {
-        public Acessoria()
+        public Assessoria()
         {
 
         }
 
-        public Acessoria(CreateAcessoriaViewModel acessoriaVM, string uniqueFileName)
+        public Assessoria(CreateAssessoriaViewModel assessoriaVM, string uniqueFileName)
         {
-            Nome = acessoriaVM.Nome;
+            Nome = assessoriaVM.Nome;
             Imagem = uniqueFileName;
-            Investimento = acessoriaVM.investimento;
-            Descricao = acessoriaVM.Descricao;
+            Investimento = assessoriaVM.investimento;
+            Descricao = assessoriaVM.Descricao;
         }
 
         public int Id { get; private set; }

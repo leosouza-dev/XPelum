@@ -7,23 +7,23 @@ using XPelum.Models;
 
 namespace XPelum.Repository
 {
-    public class AcessoriaRepository
+    public class AssessoriaRepository
     {
 
         private readonly MeuDbContext _context;
-        public AcessoriaRepository(MeuDbContext context)
+        public AssessoriaRepository(MeuDbContext context)
         {
             _context = context;
         }
 
-        public IEnumerable<Acessoria> ListarTodas()
+        public IEnumerable<Assessoria> ListarTodas()
         {
-            return _context.Acessoria.ToList();
+            return _context.Assessoria.ToList();
         }
 
-        public void Salvar(Acessoria acessoria)
+        public void Salvar(Assessoria assessoria)
         {
-            _context.Add(acessoria);
+            _context.Add(assessoria);
             _context.SaveChanges();
         }
     }

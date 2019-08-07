@@ -13,7 +13,7 @@ namespace XPelum.Data
         {
         }
 
-        public DbSet<Acessoria> Acessoria { get; set; }
+        public DbSet<Assessoria> Assessoria { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

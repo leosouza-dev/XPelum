@@ -9,18 +9,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using XPelum.Data;
+using XPelum.Factory;
 using XPelum.Models;
 using XPelum.Repository;
 using XPelum.ViewModel;
 
 namespace XPelum.Controllers
 {
-    public class AcessoriasController : Controller
+    public class AssessoriasController : Controller
     {
-        private readonly AcessoriaRepository _repository;
+        private readonly AssessoriaRepository _repository;
         private readonly IHostingEnvironment _hostingEnvironment;
 
-        public AcessoriasController(AcessoriaRepository repository,
+        public AssessoriasController(AssessoriaRepository repository,
                                     IHostingEnvironment hostingEnvironment)
         {
             _repository = repository;
@@ -40,21 +41,19 @@ namespace XPelum.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CreateAcessoriaViewModel acessoriaVM)
+        public IActionResult Create(CreateAssessoriaViewModel acessoriaVM)
         {
             if (ModelState.IsValid)
             {
-                string uniqueFileName = null;
-
+                string uniqueFileName = null;  
                 if(acessoriaVM.Imagem != null)
                 {
-                    string pasta = Path.Combine(_hostingEnvironment.WebRootPath, "img"); //determina o diretório para salvar as imagens
-                    uniqueFileName = Guid.NewGuid().ToString() + "_" + acessoriaVM.Imagem.FileName; //criando um unico nome de imagem com GUID
-                    string diretorioDaImagem = Path.Combine(pasta, uniqueFileName); //combinando diretório da pasta com nome da imagem
-                    acessoriaVM.Imagem.CopyTo(new FileStream(diretorioDaImagem, FileMode.Create));
+                    //usando a factory para salvar imagem
+                    var uploadImage = new UploadImageFactory(_hostingEnvironment);
+                    uniqueFileName = uploadImage.SalvarImagem(acessoriaVM);
                 }
 
-                var acessoria = new Acessoria(acessoriaVM, uniqueFileName);
+                var acessoria = new Assessoria(acessoriaVM, uniqueFileName);
 
                 _repository.Salvar(acessoria);
                 return RedirectToAction(nameof(Index));
